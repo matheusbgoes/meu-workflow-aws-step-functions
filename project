@@ -1,0 +1,25 @@
+{
+  "Comment": "Sistema de Entrega com Desconto",
+  "StartAt": "Validar Valor do Pedido",
+  "States": {
+    "Validar Valor do Pedido": {
+      "Type": "Choice",
+      "Choices": [
+        {
+          "Variable": "$.valor",
+          "NumericGreaterThan": 100,
+          "Next": "Aplicar Desconto Especial"
+        }
+      ],
+      "Default": "Pedido Normal"
+    },
+    "Aplicar Desconto Especial": {
+      "Type": "Pass",
+      "End": true
+    },
+    "Pedido Normal": {
+      "Type": "Pass",
+      "End": true
+    }
+  }
+}
